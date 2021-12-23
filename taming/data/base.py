@@ -1,8 +1,9 @@
 import bisect
 import numpy as np
 import albumentations
-from PIL import Image
+from PIL import Image, ImageFile
 from torch.utils.data import Dataset, ConcatDataset
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 
 class ConcatDatasetWithIndex(ConcatDataset):

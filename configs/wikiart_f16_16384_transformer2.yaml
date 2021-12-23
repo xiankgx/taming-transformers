@@ -13,7 +13,7 @@ model:
     first_stage_config:
       target: taming.models.vqgan.VQModel
       params:
-        ckpt_path: logs/2021-10-26T08-15-54_wikiart_f16_16384/checkpoints/last.ckpt
+        ckpt_path: checkpoints/wikiart_f16_16384_8145600.ckpt 
         embed_dim: 256
         n_embed: 16384
         ddconfig:
@@ -34,16 +34,16 @@ model:
 data:
   target: main.DataModuleFromConfig
   params:
-    batch_size: 14
+    batch_size: 16
     num_workers: 16
     train:
       target: taming.data.custom.CustomTrain
       params:
-        training_images_list_file: /home/ginxian_kok/datasets/wikiart_train.txt
+        training_images_list_file: /home/gx/taming-transformers/wikiart_abstract_art_train.txt
         size: 256
     validation:
       target: taming.data.custom.CustomTest
       params:
-        test_images_list_file: /home/ginxian_kok/datasets/wikiart_test.txt
+        test_images_list_file: /home/gx/taming-transformers/wikiart_abstract_art_train.txt
         size: 256
 
